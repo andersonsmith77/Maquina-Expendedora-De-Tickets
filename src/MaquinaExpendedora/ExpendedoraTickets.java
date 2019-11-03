@@ -791,7 +791,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(
                     null,"Tícket Q-" + queja.poll() + " ha sido atendido, el siguiente tícket en atenderse será el tícket Q-" + queja.element() + ".");
-            lblQueja.setText("  Q-"+ queja.element());
+            lblQueja.setText("  Q-" + queja.element());
         }
     }//GEN-LAST:event_btnAtenQuejaActionPerformed
 
@@ -817,7 +817,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(
                     null,"Tícket Q-" + abono.poll() + " ha sido atendido, el siguiente tícket en atenderse será el tícket A-" + abono.element() + ".");
-            lblAbono.setText("  A-"+ abono.element());
+            lblAbono.setText("   A-" + abono.element());
         }
     }//GEN-LAST:event_btnAtenAbonoActionPerformed
 
@@ -832,18 +832,18 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(credito.isEmpty() == true){
             JOptionPane.showMessageDialog(
-                    null,"No hay tickets de credito que atender");
+                    null,"No hay tickets de crédito que atender");
         }else if(credito.size() == 1){
             JOptionPane.showMessageDialog(
                     null,"Tícket C-" + credito.element() + " ha sido atendido.");
             credito.poll();
             JOptionPane.showMessageDialog(
-                    null,"Ya no quedan mas tíckets de crédito por atender.");
+                    null,"Ya no quedan mas tickets de crédito por atender.");
             lblCredito.setText(" ...");
         }else{
             JOptionPane.showMessageDialog(
                     null,"Tícket C-" + credito.poll() + " ha sido atendido, el siguiente tícket en atenderse será el tícket C-" + credito.element() + ".");
-            lblCredito.setText("  C-"+ credito.element());
+            lblCredito.setText("   C-" + credito.element());
         }
     }//GEN-LAST:event_btnAtenCreditoActionPerformed
 
