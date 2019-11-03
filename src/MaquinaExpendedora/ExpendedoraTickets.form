@@ -460,7 +460,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="cbTipo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbBuscador" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
@@ -478,7 +478,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbTipo" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbBuscador" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -502,7 +502,7 @@
                 <Property name="text" type="java.lang.String" value="Buscador"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbTipo">
+            <Component class="javax.swing.JComboBox" name="cbBuscador">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -939,6 +939,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reiniciar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReiniciarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1027,6 +1030,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Establecer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEstablecerActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

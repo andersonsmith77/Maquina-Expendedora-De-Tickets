@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Maquina;
+package MaquinaExpendedora;
 
 import java.util.Stack;
 import java.util.LinkedList;
@@ -74,7 +74,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         btnExpenAbono = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        cbTipo = new javax.swing.JComboBox<>();
+        cbBuscador = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
         txtTicket = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -316,8 +316,8 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Buscador");
 
-        cbTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el tipo de tícket", "Regalo", "Queja", "Abono", "Crédito" }));
+        cbBuscador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbBuscador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el tipo de tícket", "Regalo", "Queja", "Abono", "Crédito" }));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -343,7 +343,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(cbTipo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbBuscador, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createSequentialGroup()
                             .addComponent(btnBuscar)
                             .addGap(167, 167, 167))
@@ -356,7 +356,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -549,6 +549,11 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         cbReiniciador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione que conteo quieres reiniciar", "Regalo", "Queja", "Abono", "Crédito" }));
 
         btnReiniciar.setText("Reiniciar");
+        btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReiniciarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -589,6 +594,11 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         cbReiniciador1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el orden de conteo", "Ordenado", "Inverso" }));
 
         btnEstablecer.setText("Establecer");
+        btnEstablecer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstablecerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -839,7 +849,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        int tipo = cbTipo.getSelectedIndex();
+        int tipo = cbBuscador.getSelectedIndex();
         int numero = Integer.parseInt(txtTicket.getText());
         
         switch(tipo){
@@ -921,8 +931,48 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                     }
                     contenedor.clear();                
                 break;
-        }
+                }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEstablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstablecerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEstablecerActionPerformed
+
+    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
+        // TODO add your handling code here:
+        int tipo = cbReiniciador.getSelectedIndex();
+        
+            switch(tipo){
+                case 1:
+                    int a = regalo.size();
+                    for(int i = 0; i < a; i++){
+                        regalo.pop();
+                    }
+                    contadorR = 1;
+                    break;
+                case 2:
+                    int b = queja.size();
+                    for(int i = 0; i < b; i++){
+                        queja.poll();
+                    }
+                    contadorQ = 1;
+                    break;
+                case 3:
+                    int c = abono.size();
+                    for(int i = 0; i < c; i++){
+                        abono.poll();
+                    }
+                    contadorA = 1;
+                    break;
+                case 4:
+                    int d = credito.size();
+                    for(int i = 0; i < d; i++){
+                        credito.poll();
+                    }
+                    contadorC = 1;
+                    break;
+                }
+    }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -972,9 +1022,9 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
     private javax.swing.JButton btnExpenQueja;
     private javax.swing.JButton btnExpenRegalo;
     private javax.swing.JButton btnReiniciar;
+    private javax.swing.JComboBox<String> cbBuscador;
     private javax.swing.JComboBox<String> cbReiniciador;
     private javax.swing.JComboBox<String> cbReiniciador1;
-    private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
