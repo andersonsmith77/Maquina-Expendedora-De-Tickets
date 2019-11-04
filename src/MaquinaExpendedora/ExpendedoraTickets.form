@@ -105,7 +105,7 @@
                                   <Component id="jPanel12" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -971,7 +971,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnEstablecer" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbReiniciador1" alignment="0" min="-2" pref="282" max="-2" attributes="0"/>
+                                  <Component id="cbOrdenador" alignment="0" min="-2" pref="282" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
@@ -989,7 +989,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbReiniciador1" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbOrdenador" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnEstablecer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -1009,7 +1009,7 @@
                 <Property name="text" type="java.lang.String" value="Establecer orden de conteo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbReiniciador1">
+            <Component class="javax.swing.JComboBox" name="cbOrdenador">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1056,17 +1056,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="cbMostrador" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane2" min="-2" pref="258" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1080,10 +1080,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="118" max="-2" attributes="0"/>
+                      <Component id="cbMostrador" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="105" max="-2" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1100,26 +1100,7 @@
                 <Property name="text" type="java.lang.String" value="Mostrador de expendidos"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="listExpendidos">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="cbMostrador">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1138,6 +1119,25 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="listExpendidos">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>

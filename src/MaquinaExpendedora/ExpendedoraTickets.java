@@ -24,6 +24,9 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
     //Instancia de la clase BuscadorRecursivo
     BuscadorRecursivo Hyper = new BuscadorRecursivo();
     
+    //Instancia de la clase Reiniciador
+    Reiniciador principio = new Reiniciador();
+    
     //Declaramos los contadores
     int contadorR = 1;
     int contadorQ = 1;
@@ -38,7 +41,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
     //Declaramos el Queue abono 
     Queue<Integer> abono = new LinkedList<>();
     
-    //Declaramos el Queue Credito
+    //Declaramos el Queue credito
     Queue<Integer> credito = new LinkedList<>();
 
     public ExpendedoraTickets() {
@@ -99,13 +102,13 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         btnReiniciar = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        cbReiniciador1 = new javax.swing.JComboBox<>();
+        cbOrdenador = new javax.swing.JComboBox<>();
         btnEstablecer = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        cbMostrador = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
         listExpendidos = new javax.swing.JList<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -590,8 +593,8 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Establecer orden de conteo");
 
-        cbReiniciador1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbReiniciador1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el orden de conteo", "Ordenado", "Inverso" }));
+        cbOrdenador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbOrdenador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el orden de conteo", "Ordenado", "Inverso" }));
 
         btnEstablecer.setText("Establecer");
         btnEstablecer.addActionListener(new java.awt.event.ActionListener() {
@@ -610,7 +613,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnEstablecer)
-                            .addComponent(cbReiniciador1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbOrdenador, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel14)
@@ -622,7 +625,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbReiniciador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbOrdenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEstablecer)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -636,25 +639,25 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setText("Mostrador de expendidos");
 
-        jScrollPane1.setViewportView(listExpendidos);
+        cbMostrador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbMostrador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione los tickets quieres mostrar", "Regalo", "Queja", "Abono", "Crédito" }));
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione los tickets quieres mostrar", "Regalo", "Queja", "Abono", "Crédito" }));
+        jScrollPane2.setViewportView(listExpendidos);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel15))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cbMostrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel14Layout.createSequentialGroup()
+                            .addGap(97, 97, 97)
+                            .addComponent(jLabel15))
+                        .addGroup(jPanel14Layout.createSequentialGroup()
+                            .addGap(32, 32, 32)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
@@ -663,10 +666,10 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(cbMostrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -722,7 +725,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(27, Short.MAX_VALUE))))
+                        .addContainerGap(25, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -740,16 +743,14 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+        
     private void btnExpenRegaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpenRegaloActionPerformed
         // TODO add your handling code here:        
         regalo.push(contadorR);
         JOptionPane.showMessageDialog(null,"Tícket R-" + regalo.peek() + " ha sido expendido.");
         contadorR = contadorR + 1;
     }//GEN-LAST:event_btnExpenRegaloActionPerformed
-
-    
+  
     private void btnAtenRegaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenRegaloActionPerformed
         // TODO add your handling code here:
         if(regalo.isEmpty() == true){
@@ -761,10 +762,12 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
             regalo.pop();
             JOptionPane.showMessageDialog(
                     null,"Ya no quedan mas tickets de regalo por atender.");
-            lblRegalo.setText(" ...");
+            lblRegalo.setText("  -----");
         }else{
             JOptionPane.showMessageDialog(
-                    null,"Tícket R-" + regalo.remove(0) + " ha sido atendido, el siguiente número en atenderse será el tícket R-" + regalo.get(0) + ".");
+                    null,"Tícket R-" + regalo.remove(0) + " ha sido atendido.");
+            JOptionPane.showMessageDialog(
+                    null,"El siguiente número en atenderse será el tícket R-" + regalo.get(0) + ".");
             lblRegalo.setText("   R-" + regalo.get(0));
         }       
     }//GEN-LAST:event_btnAtenRegaloActionPerformed
@@ -783,14 +786,15 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                     null,"No hay tíckets de queja que atender");
         }else if(queja.size() == 1){
             JOptionPane.showMessageDialog(
-                    null,"Tícket Q-" + queja.element() + " ha sido atendido.");
-            queja.poll();
+                    null,"Tícket Q-" + queja.poll() + " ha sido atendido.");
             JOptionPane.showMessageDialog(
                     null,"Ya no quedan mas tíckets de queja por atender.");
-            lblQueja.setText(" ...");
+            lblQueja.setText(" -----");
         }else{
             JOptionPane.showMessageDialog(
-                    null,"Tícket Q-" + queja.poll() + " ha sido atendido, el siguiente tícket en atenderse será el tícket Q-" + queja.element() + ".");
+                    null,"Tícket Q-" + queja.poll() + " ha sido atendido.");
+             JOptionPane.showMessageDialog(
+                    null,"El siguiente tícket en atenderse será el tícket Q-" + queja.element() + ".");
             lblQueja.setText("  Q-" + queja.element());
         }
     }//GEN-LAST:event_btnAtenQuejaActionPerformed
@@ -809,14 +813,15 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                     null,"No hay tickets de abono que atender");
         }else if(abono.size() == 1){
             JOptionPane.showMessageDialog(
-                    null,"Tícket A-" + abono.element() + " ha sido atendido.");
-            abono.poll();
+                    null,"Tícket A-" + abono.poll() + " ha sido atendido.");
             JOptionPane.showMessageDialog(
                     null,"Ya no quedan mas tickets de abono por atender.");
-            lblAbono.setText(" ...");
+            lblAbono.setText("  -----");
         }else{
             JOptionPane.showMessageDialog(
-                    null,"Tícket Q-" + abono.poll() + " ha sido atendido, el siguiente tícket en atenderse será el tícket A-" + abono.element() + ".");
+                    null,"Tícket Q-" + abono.poll() + " ha sido atendido.");
+            JOptionPane.showMessageDialog(
+                    null,"El siguiente tícket en atenderse será el tícket A-" + abono.element() + ".");
             lblAbono.setText("   A-" + abono.element());
         }
     }//GEN-LAST:event_btnAtenAbonoActionPerformed
@@ -835,14 +840,15 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                     null,"No hay tickets de crédito que atender");
         }else if(credito.size() == 1){
             JOptionPane.showMessageDialog(
-                    null,"Tícket C-" + credito.element() + " ha sido atendido.");
-            credito.poll();
+                    null,"Tícket C-" + credito.poll() + " ha sido atendido.");
             JOptionPane.showMessageDialog(
                     null,"Ya no quedan mas tickets de crédito por atender.");
-            lblCredito.setText(" ...");
+            lblCredito.setText("  -----");
         }else{
             JOptionPane.showMessageDialog(
-                    null,"Tícket C-" + credito.poll() + " ha sido atendido, el siguiente tícket en atenderse será el tícket C-" + credito.element() + ".");
+                    null,"Tícket C-" + credito.poll() + " ha sido atendido.");
+            JOptionPane.showMessageDialog(
+                    null,"El siguiente tícket en atenderse será el tícket C-" + credito.element() + ".");
             lblCredito.setText("   C-" + credito.element());
         }
     }//GEN-LAST:event_btnAtenCreditoActionPerformed
@@ -944,31 +950,19 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         
             switch(tipo){
                 case 1:
-                    int a = regalo.size();
-                    for(int i = 0; i < a; i++){
-                        regalo.pop();
-                    }
+                    principio.Reiniciador(regalo);
                     contadorR = 1;
                     break;
                 case 2:
-                    int b = queja.size();
-                    for(int i = 0; i < b; i++){
-                        queja.poll();
-                    }
+                    principio.Reiniciador2(queja);
                     contadorQ = 1;
                     break;
                 case 3:
-                    int c = abono.size();
-                    for(int i = 0; i < c; i++){
-                        abono.poll();
-                    }
+                    principio.Reiniciador2(abono);
                     contadorA = 1;
                     break;
                 case 4:
-                    int d = credito.size();
-                    for(int i = 0; i < d; i++){
-                        credito.poll();
-                    }
+                    principio.Reiniciador2(credito);
                     contadorC = 1;
                     break;
                 }
@@ -1023,9 +1017,9 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
     private javax.swing.JButton btnExpenRegalo;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JComboBox<String> cbBuscador;
+    private javax.swing.JComboBox<String> cbMostrador;
+    private javax.swing.JComboBox<String> cbOrdenador;
     private javax.swing.JComboBox<String> cbReiniciador;
-    private javax.swing.JComboBox<String> cbReiniciador1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1055,7 +1049,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAbono;
     private javax.swing.JLabel lblCredito;
     private javax.swing.JLabel lblQueja;
