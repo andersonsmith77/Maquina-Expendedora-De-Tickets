@@ -9,6 +9,7 @@ import java.util.Stack;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,21 +18,12 @@ import javax.swing.JOptionPane;
  */
 public class ExpendedoraTickets extends javax.swing.JFrame {
 
-    /*Declaramos un ArrayList porque en el método recursivo
-    necesitamos obtener un valor en específico; y dado que el Queue no cuenta con el método ".get" utilizamos un ArrayList en su lugar.*/
-    ArrayList contenedor = new ArrayList<Integer>();
-    
-    //Instancia de la clase BuscadorRecursivo
-    BuscadorRecursivo Hyper = new BuscadorRecursivo();
-    
-    //Instancia de la clase Reiniciador
-    Reiniciador principio = new Reiniciador();
-    
     //Declaramos los contadores
     int contadorR = 1;
     int contadorQ = 1;
     int contadorA = 1;
     int contadorC = 1;
+    
     //Declaramos el Stack regalo
     Stack regalo = new Stack();
     
@@ -43,9 +35,23 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
     
     //Declaramos el Queue credito
     Queue<Integer> credito = new LinkedList<>();
+    
+    //Instancia de la clase BuscadorRecursivo
+    BuscadorRecursivo Hyper = new BuscadorRecursivo();
+    
+    //Declaramos DefaultListModel
+    DefaultListModel modelo = new DefaultListModel();
+    
+    /*Declaramos un ArrayList porque en el método recursivo
+    necesitamos obtener un valor en específico; y dado que el Queue no cuenta con el método ".get" utilizamos un ArrayList en su lugar.*/
+    ArrayList contenedor = new ArrayList<Integer>();
+    
+    //Instancia de la clase Reiniciador
+    Reiniciador principio = new Reiniciador();
 
     public ExpendedoraTickets() {
         initComponents();
+        listExpendidos.setModel(modelo);
         this.setLocationRelativeTo(null);
     }
 
@@ -100,15 +106,12 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         cbReiniciador = new javax.swing.JComboBox<>();
         btnReiniciar = new javax.swing.JButton();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        cbOrdenador = new javax.swing.JComboBox<>();
-        btnEstablecer = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        cbMostrador = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         listExpendidos = new javax.swing.JList<>();
+        btnMostrar = new javax.swing.JButton();
+        cbMostrador = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -320,7 +323,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         jLabel10.setText("Buscador");
 
         cbBuscador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbBuscador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el tipo de tícket", "Regalo", "Queja", "Abono", "Crédito" }));
+        cbBuscador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona el tipo de tícket", "Regalo", "Queja", "Abono", "Crédito" }));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -549,7 +552,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         jLabel13.setText("Reiniciador de conteo");
 
         cbReiniciador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbReiniciador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione que conteo quieres reiniciar", "Regalo", "Queja", "Abono", "Crédito" }));
+        cbReiniciador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona qué conteo quieres reiniciar", "Regalo", "Queja", "Abono", "Crédito" }));
 
         btnReiniciar.setText("Reiniciar");
         btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -567,7 +570,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReiniciar)
                     .addComponent(cbReiniciador, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -576,59 +579,13 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbReiniciador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnReiniciar)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jPanel13.setBackground(new java.awt.Color(245, 208, 34));
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
-        jPanel13.setPreferredSize(new java.awt.Dimension(267, 123));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Establecer orden de conteo");
-
-        cbOrdenador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbOrdenador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el orden de conteo", "Ordenado", "Inverso" }));
-
-        btnEstablecer.setText("Establecer");
-        btnEstablecer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEstablecerActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEstablecer)
-                            .addComponent(cbOrdenador, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(80, 80, 80))))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbOrdenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEstablecer)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel14.setBackground(new java.awt.Color(245, 208, 34));
@@ -639,26 +596,34 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setText("Mostrador de expendidos");
 
-        cbMostrador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbMostrador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione los tickets quieres mostrar", "Regalo", "Queja", "Abono", "Crédito" }));
-
         jScrollPane2.setViewportView(listExpendidos);
+
+        btnMostrar.setText("Mostrar / Actualizar");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+
+        cbMostrador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbMostrador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona qué conteo quieres mostrar", "Regalo", "Queja", "Abono", "Crédito" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbMostrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel14Layout.createSequentialGroup()
-                            .addGap(97, 97, 97)
-                            .addComponent(jLabel15))
-                        .addGroup(jPanel14Layout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jLabel15))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMostrar)
+                            .addComponent(cbMostrador, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(19, 19, 19))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -667,9 +632,11 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbMostrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(btnMostrar)
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -685,9 +652,8 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -720,12 +686,10 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                                 .addGap(11, 11, 11)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(25, Short.MAX_VALUE))))
+                                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
+                        .addGap(25, 25, 25))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -783,7 +747,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(queja.isEmpty() == true){
             JOptionPane.showMessageDialog(
-                    null,"No hay tíckets de queja que atender");
+                    null,"No hay tíckets de queja que atender.");
         }else if(queja.size() == 1){
             JOptionPane.showMessageDialog(
                     null,"Tícket Q-" + queja.poll() + " ha sido atendido.");
@@ -810,7 +774,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(abono.isEmpty() == true){
             JOptionPane.showMessageDialog(
-                    null,"No hay tickets de abono que atender");
+                    null,"No hay tickets de abono que atender.");
         }else if(abono.size() == 1){
             JOptionPane.showMessageDialog(
                     null,"Tícket A-" + abono.poll() + " ha sido atendido.");
@@ -837,7 +801,7 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(credito.isEmpty() == true){
             JOptionPane.showMessageDialog(
-                    null,"No hay tickets de crédito que atender");
+                    null,"No hay tickets de crédito que atender.");
         }else if(credito.size() == 1){
             JOptionPane.showMessageDialog(
                     null,"Tícket C-" + credito.poll() + " ha sido atendido.");
@@ -863,9 +827,9 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 int indiceDelRegaloBuscado = Hyper.busquedaBinariaRecursiva(regalo, numero, 0, regalo.size() - 1);
                 if(indiceDelRegaloBuscado == -1){
                     if(numero < contadorR){
-                    JOptionPane.showMessageDialog(null, "El ticket R-" + numero + " ya fue atendido");
+                    JOptionPane.showMessageDialog(null, "El ticket R-" + numero + " ya fue atendido.");
                     }else{
-                    JOptionPane.showMessageDialog(null, "El ticket R-" + numero + " no se encuentra");
+                    JOptionPane.showMessageDialog(null, "El ticket R-" + numero + " no se expendido aún.");
                     }
                 }else{
                 JOptionPane.showMessageDialog(null, "El ticket R-" + numero + " si se encuentra, y está en la posición "+ (indiceDelRegaloBuscado+1));
@@ -884,9 +848,9 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 int indiceDeLaQuejaBuscada = Hyper.busquedaBinariaRecursiva2(contenedor, numero, 0, queja.size() - 1);
                 if(indiceDeLaQuejaBuscada == -1){
                     if(numero < contadorQ){
-                    JOptionPane.showMessageDialog(null, "El ticket Q-" + numero + " ya fue atendido");
+                    JOptionPane.showMessageDialog(null, "El ticket Q-" + numero + " ya fue atendido.");
                     }else{
-                    JOptionPane.showMessageDialog(null, "El ticket Q-" + numero + " no se encuentra");
+                    JOptionPane.showMessageDialog(null, "El ticket Q-" + numero + " no se ha expendido aún.");
                     }
                     }else{
                     JOptionPane.showMessageDialog(null, "El ticket Q-" + numero + " si se encuentra, y está en la posición "+ (indiceDeLaQuejaBuscada+1));
@@ -906,9 +870,9 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 int indiceDelAbonoBuscado = Hyper.busquedaBinariaRecursiva2(contenedor, numero, 0, abono.size() - 1);
                 if(indiceDelAbonoBuscado == -1){
                     if(numero < contadorA){
-                    JOptionPane.showMessageDialog(null, "El ticket A-" + numero + " ya fue atendido");
+                    JOptionPane.showMessageDialog(null, "El ticket A-" + numero + " ya fue atendido.");
                     }else{
-                    JOptionPane.showMessageDialog(null, "El ticket A-" + numero + " no se encuentra");
+                    JOptionPane.showMessageDialog(null, "El ticket A-" + numero + " no se ha expendido aún.");
                     }
                     }else{
                     JOptionPane.showMessageDialog(null, "El ticket A-" + numero + " si se encuentra, y está en la posición "+ (indiceDelAbonoBuscado+1));
@@ -928,9 +892,9 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 int indiceDelCreditoBuscado = Hyper.busquedaBinariaRecursiva2(contenedor, numero, 0, credito.size() - 1);
                 if(indiceDelCreditoBuscado == -1){
                     if(numero < contadorC){
-                    JOptionPane.showMessageDialog(null, "El ticket C-" + numero + " ya fue atendido");
+                    JOptionPane.showMessageDialog(null, "El ticket C-" + numero + " ya fue atendido.");
                     }else{
-                    JOptionPane.showMessageDialog(null, "El ticket C-" + numero + " no se encuentra");
+                    JOptionPane.showMessageDialog(null, "El ticket C-" + numero + " no se ha expendido aún.");
                     }
                     }else{
                     JOptionPane.showMessageDialog(null, "El ticket C-" + numero + " si se encuentra, y está en la posición "+ (indiceDelCreditoBuscado+1));
@@ -939,10 +903,6 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                 break;
                 }
     }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnEstablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstablecerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEstablecerActionPerformed
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
         // TODO add your handling code here:
@@ -967,6 +927,68 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
                     break;
                 }
     }//GEN-LAST:event_btnReiniciarActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+        int tipo = cbMostrador.getSelectedIndex();
+        
+            switch(tipo){
+                case 1:
+                    modelo.clear();
+                    for (int i = 0; i < regalo.size(); i++) {
+                        modelo.addElement("R-" + regalo.get(i));
+                        }
+                    break;
+                case 2:
+                    int a = queja.size();
+                        for(int i = 0; i < a; i++){
+                            contenedor.add(queja.element());
+                            queja.poll();
+                    }
+                    int b = contenedor.size();
+                        for(int i = 0; i < b; i++){
+                            queja.offer((int) contenedor.get(i));
+                    }
+                    modelo.clear();
+                    for(int i = 0; i < contenedor.size(); i++) {
+                        modelo.addElement("Q-" + contenedor.get(i));
+                    }
+                    contenedor.clear();
+                    break;
+                case 3:
+                    int c = abono.size();
+                        for(int i = 0; i < c; i++){
+                            contenedor.add(abono.element());
+                            abono.poll();
+                    }
+                    int d = contenedor.size();
+                        for(int i = 0; i < d; i++){
+                            abono.offer((int) contenedor.get(i));
+                    }
+                    modelo.clear();
+                    for(int i = 0; i < contenedor.size(); i++) {
+                        modelo.addElement("A-" + contenedor.get(i));
+                    }
+                    contenedor.clear();
+                    break;
+                case 4:
+                    int e = credito.size();
+                        for(int i = 0; i < e; i++){
+                            contenedor.add(credito.element());
+                            credito.poll();
+                    }
+                    int f = contenedor.size();
+                        for(int i = 0; i < f; i++){
+                            credito.offer((int) contenedor.get(i));
+                    }
+                    modelo.clear();
+                    for(int i = 0; i < contenedor.size(); i++) {
+                        modelo.addElement("C-" + contenedor.get(i));
+                    }
+                    contenedor.clear();
+                    break;
+                }
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1010,22 +1032,20 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
     private javax.swing.JButton btnAtenQueja;
     private javax.swing.JButton btnAtenRegalo;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEstablecer;
     private javax.swing.JButton btnExpenAbono;
     private javax.swing.JButton btnExpenCredito;
     private javax.swing.JButton btnExpenQueja;
     private javax.swing.JButton btnExpenRegalo;
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JComboBox<String> cbBuscador;
     private javax.swing.JComboBox<String> cbMostrador;
-    private javax.swing.JComboBox<String> cbOrdenador;
     private javax.swing.JComboBox<String> cbReiniciador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1039,7 +1059,6 @@ public class ExpendedoraTickets extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
